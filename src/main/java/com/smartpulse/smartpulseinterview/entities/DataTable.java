@@ -15,15 +15,15 @@ public class DataTable {
     public DataTable(String concrat, double totalQuantity, double totalAmount, double weightedAverage) {
         this.date = getDateFromConract(concrat);
         this.totalQuantity = doubleFormat(totalQuantity);
-        this.totalAmount = doubleFormat(totalAmount);;
-        this.weightedAverage = doubleFormat(weightedAverage);;
+        this.totalAmount = doubleFormat(totalAmount);
+        this.weightedAverage = doubleFormat(weightedAverage);
     }
 
     //concrat ın PH dan sonraki değerini Tarihe çevirir
     private String getDateFromConract(String concrat){
         String yearMonthDayHour = concrat.substring(2);
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyMMddHH");
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yy/MM/dd HH.mm");
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH.mm");
 
         return LocalDateTime.parse(yearMonthDayHour, inputFormatter).format(outputFormatter);
     }

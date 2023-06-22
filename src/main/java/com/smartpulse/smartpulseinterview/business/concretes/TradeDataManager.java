@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class TradeDataManager implements TradeDataService {
@@ -71,6 +68,8 @@ public class TradeDataManager implements TradeDataService {
 
             list.add(new DataTable(concrat,totalQuantity,totalAmount,weightedAverage));
         }
+
+        list.sort(Comparator.comparing(DataTable::getDate));
 
         return list;
     }
